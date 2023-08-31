@@ -1,3 +1,0 @@
-"0","kable(summary(csdata$Region))"
-"2","Error in kable(summary(csdata$Region)) : could not find function ""kable""
-"
