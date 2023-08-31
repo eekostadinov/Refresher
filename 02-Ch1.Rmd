@@ -1,11 +1,11 @@
-# Topic 1: GNI per capita across countries and over time
+# Representing differences in living standards across countries and over time {#ch1}
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, warning=FALSE, message = FALSE)
 
 ```
 
-This document uses data on GNI per capita (PPP)[^1] from the [World Bank's World Development Indicators database](https://datacatalog.worldbank.org/search/dataset/0037712/World-Development-Indicators) to provide examples of representing data. 
+Most of this chapter uses data on GNI per capita (PPP)[^1] from the World Bank's World Development Indicators database [@wdi] available [here](https://databank.worldbank.org/source/world-development-indicators). The chapter provides examples of using the data to represent differences in living standards between countries and over time. 
 
 
 [^1]: **Gross National Income (GNI)** is the total income earned by a country's residents (individuals or companies) from both domestic and foreign sources over a period of time. GNI is closely related to GDP, but accounts differently for income earned domestically and abroad. 
@@ -16,18 +16,14 @@ This document uses data on GNI per capita (PPP)[^1] from the [World Bank's World
     
     In particular, in what follows we use data GNI per capita PPP-adjusted by the so called *Atlas method* - the indicator based on which the World Bank groups countries into low, middle, and high-income.
 
-The data is analyzed using R and the document shows all R codes used, together with the outputs from the code (such as graphs and tables). The document should be fully replicable, in the sense that if you run all the blocks of code in your own R installation (or in the cloud) in the order that they appear on the document, you should get identical results. That being said, a complete introduction to R is beyond the scope of this course and not all of the code will be explained in detail. You are nonetheless strongly encouraged to run the code yourself, which will hopefully enable you to learn intuitively key aspects of the syntax of the language. Still, some parts of the document will include relatively advanced code, so do not worry if you do not understand everything (or even most of the code).
-
-For ease of replication, all the data used in the documented is available as an Excel file `data_ch1.xlsx` with different datasets saved as different tabs. To replicate the rest of the document, download the file and place it inside a folder on your computer. Then set the working directory in R to the folder where you placed the file:
-
-```{r setwd}
+For ease of replication, all the data used in the chapter is available as an Excel file `data_ch1.xlsx` with different datasets saved as different tabs. To replicate the rest of the chapter, download the file and place it inside a folder on your computer. Then set the working directory in R to the folder where you placed the file. On my computer, this is done as follows:
+```{r setwd, eval=FALSE}
 setwd("/home/emil/Desktop/book")
 ```
 
-In addition, run the following code to install all the R libraries that will be used for the analysis:
+In addition, run the following code to install all the R packages that will be used for the analysis:
 ```{r installpackages, eval=FALSE}
 install.packages("readxl")
-install.packages("writexl")
 install.packages("tidyr")
 install.packages("dplyr")
 install.packages("ggplot2")
@@ -36,9 +32,10 @@ install.packages("stringr")
 install.packages("maps")
 install.packages("knitr")
 ```
+
+and load them
 ```{r loadpackages, warning=FALSE, message = FALSE}
 library(readxl)
-library(writexl)
 library(tidyr)
 library(dplyr)
 library(ggplot2)
@@ -49,105 +46,19 @@ library(knitr)
 
 ```
 
-## Understanding your data
-
-Prior to analyzing data it is important to understand the structure of data used.
-
-### Cross-sectional, time-series, and panel data
-
-One important aspect of this is whether the data is cross-sectional, time-series, or panel. 
-
-- *Cross-sectional* data consists of observations on several subjects (such as individuals, firms, countries) at a single point or period of time.
-- *Time-series* data consists of observations of a single subject over several points or periods of time.
-- *Panel* (or *longitudinal*) data consists of observations on several subjects over several points or periods of time. It has both cross-sectional and time-series dimensions. 
-
-
-The main dataset that we use contains observations of GNI per capita for 212 countries over 48 years, and is therefore panel data. 
-
-To better understand data structures, however, let's start with a small sub-sample of the data which only tracks 4 countries for a period of 3 years. This "mini-data" is stored in the first sheet of the Excel file `data_ch1.xlsx`. Load this to R and allocate it to a *dataframe* called `data`: 
-
+The complete dataset on GNI per capita (PPP) from WDI is available in the `gnipcppp_long` sheet of the `data_ch1.xlsx` Excel file. First, we load and inspect the the first few rows of the data
 ```{r}
-data <- read_excel("data_ch1.xlsx", sheet = "gnipcppp_wide_small")
-
-data
+# Load full panel dataset in long form
+longdata <- read_excel("data_ch1.xlsx", sheet = "gnipcppp_long")
+head(longdata)
 ```
+This is a panel dataset in long form, with each row identifying an individual country in a specific year. There are 10600 observations (country-year pairs) in total (212 countries followed over 50 years). 
 
-The "mini-data" includes information on 4 countries, which vary across rows. In addition, it includes the country's region in the second column. Finally, the value of GNI per capita (PPP) for years 2019-2021 is represented in separate columns, labeled by the year. Note that there is some missing data (the GNP per capita of Turkmenistan in 2020 and 2021).
-
-
-#### Panel data - long and wide form
-
-When panel data is structured so that cross-sectional units vary across rows and time periods across columns (as above) it is said to be in *wide form*. While wide form is seemingly natural way to arrange data, for most computational purposes it is more appropriate to arrange panel data in *long form* - i.e., collapsing the time period so that a row of the data now corresponds to a pair of cross-sectional at a specific period of time:
-
-```{r, rows.print=12}
-long.data <- data %>% 
-  pivot_longer(
-    cols = `2019`:`2021`, 
-    names_to = "Year",
-    values_to = "GNIpc"
-  )
-
-long.data
-```
-
-#### Cross-sectional data
-
-An example of cross-sectional data, is the subset of the panel data above, at a particular year only. It has the following structure:
-```{r}
-cs.data <- subset(long.data, Year==2021)
-
-cs.data
-```
-
-In the context of our dataset, cross-sectional data is appropriate for understanding differences in living standards (measured by GNI per capita (PPP)) between countries (and between and within regions) at a specific point in time.
-
-#### Time-series data
-An example of time-series data, is the subset of the panel data above, for a particular country only. It has the following structure:
-
-```{r}
-ts.data <- subset(long.data, Country=="UK")
-
-ts.data
-```
-In the context of our dataset, time-series data is appropriate for understanding the dynamic evolution of living standards (measured by GNI per capita (PPP)) in a given country over time.
-
-As panel data has both cross-sectional and time-series dimensions, it is appropriate for analyzing both cross-country differences and dynamic evolution of living standards over time.
-
-### Categorical and quantitative variables
-
-Another important aspect of the data is the nature of the variables in it. A complete discussion of the types of variables and data types in R is beyond the scope of the document but a key distiction relevant for the subsequent analysis is between quantitative and qualitative (categorical) variables.
-
-To set ideas, consider the cross-sectional mini-dataset `cs.data` obtained above, consisting of 4 variables - `Country`, `Region`, `Year` and `GNIpc`.
-
-- GNI per capita (measured in PPP adjusted international dollars) is clearly a quantitative variable. If we summarize the variable in R we can see that it has been correctly identified as quantitative 
-
-```{r}
-summary(cs.data$GNIpc)
-```
-
-- Region is clearly a categorical variable, as there is no single natural order of its possible values. We can see that among the four countries in the mini-dataset, three are from Europe and Central Asia, and one from South Asia. However, if we summarize the variable in R 
-```{r}
-summary(cs.data$Region)
-```
-we see that it is classified as `character` (meaning text or string) which means that R does not recognise that three of the countries are from the same region. In such situations, it is important to explicitly tell R that the variable is categorical. In R, categorical varialbes are referred to as factor variables. We can declare the variable to be categorical as follows: 
-```{r}
-cs.data$Region <- as.factor(cs.data$Region) 
-```
-Now note that a summary of the variable
-```{r}
-summary(cs.data$Region)
-```
-correctly recognises that the data consists of 3 countries from Europe and Central Asia and one country from South Asia.
-
-While this discussion is not necessarily crucial for understanding the data representations in the rest of the document, it is important for understanding some junks of code, as we will often have to declare the type of variables.
-
-### Structure of document
-
-In the remainder of this document, we will illustrate how individual cross sections, individual time series, or the whole panel dataset can be utilized to insightfully represent information from the data.
+In the remainder of this chapter, we will illustrate how individual cross sections, individual time series, or the whole panel dataset can be utilized to insightfully represent information from the data.
 
 The following code cleans the R environment so that the dataframes used in this section are no longer loaded:
 ```{r}
-rm(cs.data, data, long.data, ts.data)
+rm(list = ls())
 ```
 
 ## Representing cross sectional data: Cross-country differences in living standards in 2019
@@ -194,7 +105,7 @@ The dataset contains 212 observations (rows of data) on 5 variables (columns). A
 
 To get a feel of the data, let's summarize two of the key variables[^2]:
 
-[^2]: The function `kable()` is used here to format the tables better for the document. You can obtain the same information by simply using `summary(csdata$Region)` instead of `ktable(summary(csdata$Region))`, but will be formatted slightly differently - feel free to try.
+[^2]: The function `kable()` is used here to format the tables better for the book. You can obtain the same information by simply using `summary(csdata$Region)` instead of `ktable(summary(csdata$Region))`, but will be formatted slightly differently - feel free to try.
 
 
 ```{r}
@@ -250,7 +161,7 @@ ggplot(data = gnimap.data, mapping = aes(x = long, y = lat, group = group)) +
   ggtitle("GNI per capita, PPP (2019)") + plainmap
 ```
 
-Notice that the colour (shade of blue) of each country corresponds to its GNI p.c. (PPP) as noted in the legend. While a map is an informative way to represent the geographic variation in GNI per capita, there are many aspects of the distribution which are not so easy to observe and would be better visualized later in the document.
+Notice that the colour (shade of blue) of each country corresponds to its GNI p.c. (PPP) as noted in the legend. While a map is an informative way to represent the geographic variation in GNI per capita, there are many aspects of the distribution which are not so easy to observe and would be better visualized later on.
 
 For the purposes of understanding our data, we next plot a map showing how the regions in our data (as categorised by the World Bank) are defined:
 ```{r}
@@ -279,28 +190,7 @@ Note that this leaves us with a sample of 196 countries from the initial 212.
 
 A histogram of a random variable is a graph which divides the support of the variable, plotted on the horizontal axis, into a number of equally wide "bins", with the height of each bin (on the vertical axis) equal to the number (or fraction) of observations falling into the bin. The histogram is a graphical representation of the distribution function of the variable. 
 
-#### A note on plotting with R
-
-R has a base in-built function `hist()` for producing histograms which we can use to produce a histogram of the GNI per capita distribution in our data as follows:
-```{r}
-hist(csdata$rGNIpc)
-```
-
-While the R's base in-built library for graphs `graphics` is sufficiently extensive (you can find more about it [here](https://www.rdocumentation.org/packages/graphics/versions/3.6.2)), for the remainder of this document we will make use of the more advanced and customizable library `ggplot2` (more [here](https://ggplot2.tidyverse.org/)). 
-
-To produce a histogram using `ggplot2`
-```{r}
-ggplot(csdata, aes(x=rGNIpc)) + 
-  geom_histogram()
-```
-
-Before proceeding further let's briefly discuss the philosophy of the `ggplot` syntax. 
-- `ggplot` is called throught the function `ggplot()` which takes as first argument the name of the dataframe used
-- Then with a `+` we add *layers* of types of graphs we want to plot. In the above example `geom_histogram()` specifies we are to plot a histogram.
-- Either inside `ggplot()` or inside `geom_...()` we need to specify the variables based on which the graph is to be plotted. In `ggplot` this is specified via *aesthetics* (e.g., statements about what goes on `x` and/or `y` axis) through a function `aes()`.
-- Then all this can be customized further as we will see below.
-
-This all sounds quite complicated, but the philosophy of plotting will become increasingly clear through examples. For example, we can customize the histogram further, by changing the color and fill, adding labels and titles as below: 
+Using `ggplot2`, we can produce a histogram of the distribution of GNI per capita across countries as follows 
 ```{r}
 ggplot(csdata, aes(x=rGNIpc)) + 
   geom_histogram(bins=60, color="black", fill="red", alpha=0.5)+
@@ -308,9 +198,6 @@ ggplot(csdata, aes(x=rGNIpc)) +
   labs(title="Histogram",
        subtitle="Distribution of real GNI per capita across countries, 2019")
 ```
-
-#### Back to histograms
-
 As can be seen from the histogram above, living standards (as measured by PPP-adjusted GNI per capita) are very unequally distributed across countries. The distribution of GNI p.c. is highly disperse (varying from close to 0 to about 115000 international dollars). In addition, it is strongly positively skewed (i.e., there are much more countries at the left tail of the distribution with few to the right forming a long right tail). Consistently with this positive skewness the mean GNI p.c. (at 15890) is well above the median (at 6435).
  
 
@@ -637,7 +524,7 @@ rm(csdata.all)
 
 ## Representing time-series data: Real GDP per capita in UK over time
 
-This section gives examples of representing time-series data. 
+This section provides examples of representing time-series data. 
 
 Up until now we have used data on GNI per capita (PPP) from the World Bank's World Development Indicators database. The cross-sectional dataset for 2019 that was used in the previous section, was obtained as from the full panel dataset by only keeping observations for 2019. Similarly, one way in which we can obtain a time-series dataset, is as a subset of the full panel dataset for an individual country only. 
 
@@ -738,7 +625,7 @@ ggplot(ukgdp) +
 
 As we can see the actual series tracks closely the counterfactual one prior to 2007 (indicating approximately constant growth rates over the period) but then diverges sharply from it during the Great Recession and furthermore continues growing at a slower average rate than before.
 
-It should be noted that this exercise should be viewed with some skepticism (for a number of reasons but especially) due to the relatively naive way of fitting a trend. This being said there is no uncontroversial way of estimating trends. Furthermore, much more general and sophisticated empirical and theoretical approaches detect a systematic decline in productivity growth in the last decades. Understanding the reasons for the productivity growth decline is a hot topic of debate in economics, and you will learn about this during your studies, but further discussion is beyond the scope of this document.
+It should be noted that this exercise should be viewed with some skepticism (for a number of reasons but especially) due to the relatively naive way of fitting a trend. This being said there is no uncontroversial way of estimating trends. Furthermore, much more general and sophisticated empirical and theoretical approaches detect a systematic decline in productivity growth in the last decades. Understanding the reasons for the productivity growth decline is a hot topic of debate in economics, and you will learn about this during your studies, but further discussion is beyond the scope of this book.
 
 ### Recessions
 
@@ -851,7 +738,7 @@ rm(ukgdp,ukgdp.decade, avegr.preGR, i, ukgdp.trunc, recs)
 
 ## Representing panel data: Cross-country differences in living standards over time - convergence and divergence
 
-The last section of the document uses the full panel dataset to provide examples of representations that use both cross-sectional and time variation. 
+The last section of the chapter uses the full panel dataset to provide examples of representations that use both cross-sectional and time variation. 
 
 First, load the full panel dataset in long form and prepare for analysis:
 ```{r}

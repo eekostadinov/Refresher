@@ -23,7 +23,7 @@
 <meta name="author" content="Emil" />
 
 
-<meta name="date" content="2023-08-25" />
+<meta name="date" content="2023-08-31" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -255,23 +255,21 @@ div.csl-indent {
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="topic-1-gni-per-capita-across-countries-and-over-time.html#cb1-1" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;/home/emil/Desktop/book&quot;</span>)</span></code></pre></div>
 <p>In addition, run the following code to install all the R libraries that will be used for the analysis:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="topic-1-gni-per-capita-across-countries-and-over-time.html#cb2-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;readxl&quot;</span>)</span>
-<span id="cb2-2"><a href="topic-1-gni-per-capita-across-countries-and-over-time.html#cb2-2" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;writexl&quot;</span>)</span>
-<span id="cb2-3"><a href="topic-1-gni-per-capita-across-countries-and-over-time.html#cb2-3" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;tidyr&quot;</span>)</span>
-<span id="cb2-4"><a href="topic-1-gni-per-capita-across-countries-and-over-time.html#cb2-4" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;dplyr&quot;</span>)</span>
-<span id="cb2-5"><a href="topic-1-gni-per-capita-across-countries-and-over-time.html#cb2-5" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;ggplot2&quot;</span>)</span>
-<span id="cb2-6"><a href="topic-1-gni-per-capita-across-countries-and-over-time.html#cb2-6" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;forcats&quot;</span>)</span>
-<span id="cb2-7"><a href="topic-1-gni-per-capita-across-countries-and-over-time.html#cb2-7" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;stringr&quot;</span>)</span>
-<span id="cb2-8"><a href="topic-1-gni-per-capita-across-countries-and-over-time.html#cb2-8" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;maps&quot;</span>)</span>
-<span id="cb2-9"><a href="topic-1-gni-per-capita-across-countries-and-over-time.html#cb2-9" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;knitr&quot;</span>)</span></code></pre></div>
+<span id="cb2-2"><a href="topic-1-gni-per-capita-across-countries-and-over-time.html#cb2-2" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;tidyr&quot;</span>)</span>
+<span id="cb2-3"><a href="topic-1-gni-per-capita-across-countries-and-over-time.html#cb2-3" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;dplyr&quot;</span>)</span>
+<span id="cb2-4"><a href="topic-1-gni-per-capita-across-countries-and-over-time.html#cb2-4" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;ggplot2&quot;</span>)</span>
+<span id="cb2-5"><a href="topic-1-gni-per-capita-across-countries-and-over-time.html#cb2-5" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;forcats&quot;</span>)</span>
+<span id="cb2-6"><a href="topic-1-gni-per-capita-across-countries-and-over-time.html#cb2-6" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;stringr&quot;</span>)</span>
+<span id="cb2-7"><a href="topic-1-gni-per-capita-across-countries-and-over-time.html#cb2-7" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;maps&quot;</span>)</span>
+<span id="cb2-8"><a href="topic-1-gni-per-capita-across-countries-and-over-time.html#cb2-8" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;knitr&quot;</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="topic-1-gni-per-capita-across-countries-and-over-time.html#cb3-1" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb3-2"><a href="topic-1-gni-per-capita-across-countries-and-over-time.html#cb3-2" tabindex="-1"></a><span class="fu">library</span>(writexl)</span>
-<span id="cb3-3"><a href="topic-1-gni-per-capita-across-countries-and-over-time.html#cb3-3" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
-<span id="cb3-4"><a href="topic-1-gni-per-capita-across-countries-and-over-time.html#cb3-4" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb3-5"><a href="topic-1-gni-per-capita-across-countries-and-over-time.html#cb3-5" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb3-6"><a href="topic-1-gni-per-capita-across-countries-and-over-time.html#cb3-6" tabindex="-1"></a><span class="fu">library</span>(forcats)</span>
-<span id="cb3-7"><a href="topic-1-gni-per-capita-across-countries-and-over-time.html#cb3-7" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
-<span id="cb3-8"><a href="topic-1-gni-per-capita-across-countries-and-over-time.html#cb3-8" tabindex="-1"></a><span class="fu">library</span>(maps)</span>
-<span id="cb3-9"><a href="topic-1-gni-per-capita-across-countries-and-over-time.html#cb3-9" tabindex="-1"></a><span class="fu">library</span>(knitr)</span></code></pre></div>
+<span id="cb3-2"><a href="topic-1-gni-per-capita-across-countries-and-over-time.html#cb3-2" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb3-3"><a href="topic-1-gni-per-capita-across-countries-and-over-time.html#cb3-3" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb3-4"><a href="topic-1-gni-per-capita-across-countries-and-over-time.html#cb3-4" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb3-5"><a href="topic-1-gni-per-capita-across-countries-and-over-time.html#cb3-5" tabindex="-1"></a><span class="fu">library</span>(forcats)</span>
+<span id="cb3-6"><a href="topic-1-gni-per-capita-across-countries-and-over-time.html#cb3-6" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb3-7"><a href="topic-1-gni-per-capita-across-countries-and-over-time.html#cb3-7" tabindex="-1"></a><span class="fu">library</span>(maps)</span>
+<span id="cb3-8"><a href="topic-1-gni-per-capita-across-countries-and-over-time.html#cb3-8" tabindex="-1"></a><span class="fu">library</span>(knitr)</span></code></pre></div>
 <div id="understanding-your-data" class="section level2 hasAnchor" number="2.1">
 <h2><span class="header-section-number">2.1</span> Understanding your data<a href="topic-1-gni-per-capita-across-countries-and-over-time.html#understanding-your-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Prior to analyzing data it is important to understand the structure of data used.</p>
@@ -453,7 +451,7 @@ div.csl-indent {
 <p>As we can see countries are categorized into 7 regions based on World Bank’s region classification. We can see that different regions include different numbers of countries. For example, there are only three countries in North America (by inspection Bermuda, Canada and the United States). Most countries (57) are in the region of Europe and Central Asia.</p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="topic-1-gni-per-capita-across-countries-and-over-time.html#cb19-1" tabindex="-1"></a><span class="fu">summary</span>(csdata<span class="sc">$</span>rGNIpc)</span></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
-##     230    2195    6435   15890   19692  117280      16</code></pre>
+##     230    2195    6435   15890   19693  117280      16</code></pre>
 <p>We can see that GNI per capita is unevenly distributed between countries, ranging from 230 international dollars per year to 117280 international dollars per year. The average GNI per capita in the sample - 15890 - is above the median - 6435. Data is not available for 16 countries.</p>
 </div>
 <div id="maps-for-fun" class="section level3 hasAnchor" number="2.2.3">
@@ -1443,7 +1441,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["bookdown-start.pdf", "bookdown-start.epub"],
 "search": {
 "engine": "fuse",
 "options": null

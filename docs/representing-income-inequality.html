@@ -23,7 +23,7 @@
 <meta name="author" content="Emil" />
 
 
-<meta name="date" content="2023-08-25" />
+<meta name="date" content="2023-08-31" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -257,15 +257,16 @@ div.csl-indent {
 <div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="representing-income-inequality.html#cb139-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;readxl&quot;</span>)</span>
 <span id="cb139-2"><a href="representing-income-inequality.html#cb139-2" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;dplyr&quot;</span>)</span>
 <span id="cb139-3"><a href="representing-income-inequality.html#cb139-3" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;ggplot2&quot;</span>)</span>
-<span id="cb139-4"><a href="representing-income-inequality.html#cb139-4" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;forcats&quot;</span>)</span></code></pre></div>
+<span id="cb139-4"><a href="representing-income-inequality.html#cb139-4" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;forcats&quot;</span>)</span>
+<span id="cb139-5"><a href="representing-income-inequality.html#cb139-5" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;pracma&quot;</span>)</span>
+<span id="cb139-6"><a href="representing-income-inequality.html#cb139-6" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;scales&quot;</span>)</span></code></pre></div>
 <p>and load them</p>
 <div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="representing-income-inequality.html#cb140-1" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
 <span id="cb140-2"><a href="representing-income-inequality.html#cb140-2" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb140-3"><a href="representing-income-inequality.html#cb140-3" tabindex="-1"></a><span class="fu">library</span>(scales)</span>
 <span id="cb140-4"><a href="representing-income-inequality.html#cb140-4" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb140-5"><a href="representing-income-inequality.html#cb140-5" tabindex="-1"></a><span class="fu">library</span>(forcats)</span>
-<span id="cb140-6"><a href="representing-income-inequality.html#cb140-6" tabindex="-1"></a><span class="fu">library</span>(pracma)</span>
-<span id="cb140-7"><a href="representing-income-inequality.html#cb140-7" tabindex="-1"></a><span class="fu">library</span>(ineq)</span></code></pre></div>
+<span id="cb140-6"><a href="representing-income-inequality.html#cb140-6" tabindex="-1"></a><span class="fu">library</span>(pracma)</span></code></pre></div>
 <div id="distribution-of-income-in-the-frs-201617" class="section level2 hasAnchor" number="4.1">
 <h2><span class="header-section-number">4.1</span> Distribution of income in the FRS 2016/17<a href="representing-income-inequality.html#distribution-of-income-in-the-frs-201617" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The Family Resources Survey (FRS), carried out by the ONS, with the NatCen, and NISRA, is an annual survey collecting information on a representative sample of UK households <span class="citation">(<a href="#ref-frs17">Office for National Statistics, Social and Vital Statistics Division, Department for Work and Pensions, National Centre for Social Research, 2023</a>)</span>. It includes rich information on the incomes and characteristics of individuals and households.</p>
@@ -791,7 +792,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["bookdown-start.pdf", "bookdown-start.epub"],
 "search": {
 "engine": "fuse",
 "options": null
