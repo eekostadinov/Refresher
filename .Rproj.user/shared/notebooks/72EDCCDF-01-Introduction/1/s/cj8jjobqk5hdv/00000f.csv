@@ -1,0 +1,2 @@
+"0","ggplot(csdata, aes(x=GNIpc)) + "
+"0","  geom_histogram()"

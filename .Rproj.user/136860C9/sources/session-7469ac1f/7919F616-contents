@@ -1,0 +1,105 @@
+@Manual{R,
+    title = {R: A Language and Environment for Statistical Computing},
+    author = {{R Core Team}},
+    organization = {R Foundation for Statistical Computing},
+    address = {Vienna, Austria},
+    year = {2023},
+    url = {https://www.R-project.org/},
+  }
+
+@Book{ggplot,
+    author = {Hadley Wickham},
+    title = {ggplot2: Elegant Graphics for Data Analysis},
+    publisher = {Springer-Verlag New York},
+    year = {2016},
+    isbn = {978-3-319-24277-4},
+    url = {https://ggplot2.tidyverse.org},
+  }
+
+@Article{world-temp,
+AUTHOR = {Rohde, R. A. and Hausfather, Z.},
+TITLE = {The Berkeley Earth Land/Ocean Temperature Record},
+JOURNAL = {Earth System Science Data},
+VOLUME = {12},
+YEAR = {2020},
+NUMBER = {4},
+PAGES = {3469--3479},
+URL = {https://essd.copernicus.org/articles/12/3469/2020/},
+DOI = {10.5194/essd-12-3469-2020}
+}
+
+@misc{antarctic,
+  doi = {10.5067/TEMSC-3MJ62},
+  url = {https://podaac.jpl.nasa.gov/dataset/TELLUS_GRAC-GRFO_MASCON_GRID_RL06_V2},
+  author = {{NASA/JPL}},
+  title = {JPL GRACE and GRACE-FO Mascon Ocean, Ice, and Hydrology Equivalent Water Height Release 06 Version 02},
+  publisher = {NASA Physical Oceanography Distributed Active Archive Center},
+  year = {2019}
+}
+
+@misc{sealevel,
+  doi = {10.5067/GMSLM-TJ151},
+  url = {https://podaac.jpl.nasa.gov/dataset/MERGED_TP_J1_OSTM_OST_GMSL_ASCII_V51},
+  author = {{MEaSUREs}},
+  title = {Global Mean Sea Level Trend from Integrated Multi-Mission Ocean Altimeters TOPEX/Poseidon, Jason-1, OSTM/Jason-2, and Jason-3 Version 5.1},
+  publisher = {NASA Physical Oceanography Distributed Active Archive Center},
+  year = {2023}
+}
+
+@misc{co2,
+  url = {https://gml.noaa.gov/ccgg/trends/data.html},
+  author = {{Tans and Keeling}},
+  title = {Trends in Atmospheric Carbon Dioxide},
+  year = {2023}
+}
+
+@misc{co2emissions,
+  url = {https://globalcarbonbudget.org/},
+  author = {{Global Carbon Budget}},
+  title = {Annual CO2 emissions},
+  year = {2022}
+}
+
+@misc{uktemp, 
+  url = {https://beta.gss-data.org.uk/cube/explore?uri=https%3A%2F%2Fraw.githubusercontent.com%2FGSS-Cogs%2Fprovider-met-office%2Fmain%2Fout%2Fregional-average-climate-observations-uk-annual-mean-temperature-2022%2Fregional-average-climate-observations-uk-annual-mean-temperature-2022%2Fregional-average-climate-observations-uk-annual-mean-temperature-2022.csv%23dataset-catalog-entry},
+  author = {{Met Office}},
+  title = {Data for the Regional average mean temperature with trends 1884 - 2022},
+  year = {2023}
+}
+
+@misc{ukrain,
+  url = {https://beta.gss-data.org.uk/cube/explore?uri=http%3A%2F%2Fgss-data.org.uk%2Fdata%2Fclimate-change%2Fmet-office-regional-average-climate-observations-uk-annual-rainfall-2021%2Fregional-average-climate-observations-uk-annual-rainfall%23dataset-catalog-entry&show-uris=false},
+  author = {{Met Office}},
+  title = {Regional average climate observations, UK annual rainfall},
+  year = {2023}
+}
+
+@misc{ukco2,
+  url = {https://globalcarbonbudget.org/},
+  author = {{Global Carbon Budget}},
+  title = {Annual CO2 emissions},
+  year = {2022}
+}
+
+@misc{frs17,
+  doi = {http://doi.org/10.5255/UKDA-SN-8336-1},
+  url = {https://beta.ukdataservice.ac.uk/datacatalogue/studies/study?id=8336},
+  author = {{Office for National Statistics, Social and Vital Statistics Division, Department for Work and Pensions, National Centre for Social Research}},
+  title = {Family Resources Survey, 2016-2017},
+  year = {2023}
+}
+
+@misc{wid,
+  url = {https://wid.world/},
+  author = {Alvaredo, Atkinson, Piketty and Saez},
+  title = {World Inequality Database},
+  year = {2022}
+}
+
+@misc{wdi,
+  doi = {https://doi.org/10.57966/6rwy-0b07},
+  url = {https://databank.worldbank.org/source/world-development-indicators},
+  author = {{World Bank}},
+  title = {World Development Indicators},
+  year = {2023}
+}
