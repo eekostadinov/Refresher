@@ -1,7 +1,0 @@
-book_filename: "refresher-book"
-chapter_name: "Chapter "
-repo: https://github.com/eekostadinov/Refresher
-output_dir: docs
-rmd_files: ["index.Rmd", "01-Introduction.Rmd", "02-Ch1.Rmd", "03-Ch2.Rmd", "04-Ch3.Rmd"]
-clean: [packages.bib, bookdown.bbl]
-new_session: yes
