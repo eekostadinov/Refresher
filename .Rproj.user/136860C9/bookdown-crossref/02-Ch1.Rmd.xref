@@ -1,0 +1,26 @@
+h1:ch1 Representing differences in living standards across countries and over time
+h2:representing-cross-sectional-data-cross-country-differences-in-living-standards-in-2019 Representing cross sectional data: Cross-country differences in living standards in 2019
+h3:loading-data Loading data
+h3:summary-of-key-variables Summary of key variables
+h3:maps-for-fun Maps (for fun)
+h3:histograms Histograms
+h3:quantiles Quantiles
+h3:quantile-function Quantile function
+h3:visualizing-distribution-within-and-between-regions Visualizing distribution within and between regions
+h4:histograms-by-region Histograms by region
+h4:dot-plots-by-region Dot plots by region
+h4:summary-statistics-by-region Summary statistics by region
+h4:bar-charts-by-region Bar charts by region
+h4:box-plots-by-region Box plots by region
+h4:categorizing-countries-by-quintiles Categorizing countries by quintiles
+h3:representing-relationships-between-continuous-variables Representing relationships between continuous variables
+h4:gni-per-capita-and-life-expenctancy GNI per capita and Life Expenctancy
+h4:gni-per-capita-and-co2-emissions-per-capita GNI per capita and CO2 emissions per capita
+h2:representing-time-series-data-real-gdp-per-capita-in-uk-over-time Representing time-series data: Real GDP per capita in UK over time
+h3:time-series-line-plots Time-series line plots
+h3:time-series-line-plots-of-the-log-transformation Time-series line plots of the log transformation
+h3:recessions Recessions
+h3:growth-rates Growth rates
+h3:distributions-again Distributions again
+h2:representing-panel-data-cross-country-differences-in-living-standards-over-time---convergence-and-divergence Representing panel data: Cross-country differences in living standards over time - convergence and divergence
+
