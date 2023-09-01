@@ -43,7 +43,7 @@ data
 ```
 
 ```
-## # A tibble: 4 × 5
+## # A tibble: 4 x 5
 ##   Country      Region                  `2019` `2020` `2021`
 ##   <chr>        <chr>                    <dbl>  <dbl>  <dbl>
 ## 1 Bangladesh   South Asia                2210   2300   2570
@@ -80,7 +80,7 @@ long.data
 ```
 
 ```
-## # A tibble: 12 × 4
+## # A tibble: 12 x 4
 ##    Country      Region                  Year  GNIpc
 ##    <chr>        <chr>                   <chr> <dbl>
 ##  1 Bangladesh   South Asia              2019   2210
@@ -110,7 +110,7 @@ cs.data
 ```
 
 ```
-## # A tibble: 4 × 4
+## # A tibble: 4 x 4
 ##   Country      Region                  Year  GNIpc
 ##   <chr>        <chr>                   <chr> <dbl>
 ## 1 Bangladesh   South Asia              2021   2570
@@ -132,7 +132,7 @@ ts.data
 ```
 
 ```
-## # A tibble: 3 × 4
+## # A tibble: 3 x 4
 ##   Country Region                  Year  GNIpc
 ##   <chr>   <chr>                   <chr> <dbl>
 ## 1 UK      Europe and Central Asia 2019  43380
@@ -215,7 +215,7 @@ csdata
 ```
 
 ```
-## # A tibble: 212 × 3
+## # A tibble: 212 x 3
 ##    Country         Year GNIpc
 ##    <chr>          <dbl> <dbl>
 ##  1 Afghanistan     2019   530
@@ -228,7 +228,7 @@ csdata
 ##  8 Argentina       2019 11220
 ##  9 Armenia         2019  4880
 ## 10 Aruba           2019 30330
-## # ℹ 202 more rows
+## # i 202 more rows
 ```
 Observe that the new dataset loaded is now a cross-section of observations for GNI per capita for 212 countries in 2019. We will say more about this data in the next chapter, but at this stage suppose that we want to produce a histogram summarizing the distribution of GNI per capita across countries in 2019. 
 
@@ -239,7 +239,7 @@ R has a base in-built function `hist()` for producing histograms which we can us
 hist(csdata$GNIpc)
 ```
 
-![](01-Introduction_files/figure-epub3/unnamed-chunk-10-1.png)<!-- -->
+![](01-Introduction_files/figure-latex/unnamed-chunk-10-1.pdf)<!-- --> 
 
 While the R's base in-built library for graphs `graphics` is sufficiently extensive (you can find more about it [here](https://www.rdocumentation.org/packages/graphics/versions/3.6.2)), for the remainder of this book we will make use of the more advanced and customizable library `ggplot2` (more [here](https://ggplot2.tidyverse.org/)). 
 
@@ -250,7 +250,7 @@ ggplot(csdata, aes(x=GNIpc)) +
   geom_histogram()
 ```
 
-![](01-Introduction_files/figure-epub3/unnamed-chunk-11-1.png)<!-- -->
+![](01-Introduction_files/figure-latex/unnamed-chunk-11-1.pdf)<!-- --> 
 
 Before proceeding further let's briefly discuss the philosophy of the `ggplot` syntax. 
 - `ggplot` is called through the function `ggplot()` which takes as first argument the name of the dataframe used (and posibly specification of *aesthetics* - see below).
@@ -268,6 +268,6 @@ ggplot(csdata, aes(x=GNIpc)) +
        subtitle="Distribution of real GNI per capita across countries, 2019")
 ```
 
-![](01-Introduction_files/figure-epub3/unnamed-chunk-12-1.png)<!-- -->
+![](01-Introduction_files/figure-latex/unnamed-chunk-12-1.pdf)<!-- --> 
 
 This all sounds quite complicated, but the philosophy of plotting will hopefully become increasingly clear through examples. 
