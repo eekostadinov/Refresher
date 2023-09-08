@@ -1,0 +1,5 @@
+"0","ggplot(csdata, aes(y=rGNIpc, x=Region)) + "
+"0","  geom_bar(stat='summary', fun='median', aes(fill=Region), show.legend=F) +   "
+"0","  labs(title=""Bar chart"",subtitle=""Median GNI per capita (PPP), 2019"") + "
+"0","  xlab("""") + ylab(""International $"") +"
+"0","  coord_flip()"

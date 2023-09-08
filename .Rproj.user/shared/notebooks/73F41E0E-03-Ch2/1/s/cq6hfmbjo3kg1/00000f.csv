@@ -1,0 +1,4 @@
+"0","ggplot(ukrain, aes(x=Year, y=Rain)) + "
+"0","  geom_line(col=""blue"") + "
+"0","  labs(title=""Time series line plot"", subtitle = ""Average annual rainfall in UK"") +"
+"0","  xlab(""Time"") + ylab(""Millimeters"")"

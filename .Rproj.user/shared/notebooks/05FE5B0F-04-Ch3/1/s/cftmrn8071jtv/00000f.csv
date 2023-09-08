@@ -1,0 +1,6 @@
+"0","ggplot(panel, aes(x=Year, y=gini, col=Country)) + "
+"0","  geom_line() + "
+"0","  geom_point() +"
+"0","  scale_color_brewer(palette = ""Dark2"") +"
+"0","  xlab("""") + ylab(""Gini coefficient"") +"
+"0","  labs(title = ""Time series line plot"", subtitle = ""Gini coefficient over time"")"

@@ -1,0 +1,27 @@
+{
+    "id": "384DC65E",
+    "path": "~/GitHub/Refresher/01-Introduction.Rmd",
+    "project_path": "01-Introduction.Rmd",
+    "type": "r_markdown",
+    "hash": "2471725068",
+    "contents": "",
+    "dirty": false,
+    "created": 1694197858575.0,
+    "source_on_save": false,
+    "relative_order": 1,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "189,26",
+        "scrollLine": "187",
+        "last_setup_crc32": "2af2daa342806910"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1694198048,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1694198048444,
+    "read_only": false,
+    "read_only_alternatives": []
+}

@@ -1,0 +1,6 @@
+"0","ggplot(csdata, aes(y=rGNIpc, x=rGNIpc.rank, col=Region)) + "
+"0","  geom_point() +"
+"0","  geom_segment(aes(x=rGNIpc.rank, xend=rGNIpc.rank, y=0, yend=rGNIpc)) +"
+"0","  geom_text(aes(label=Code), check_overlap = TRUE, angle=90, hjust=-0.5, size=2) + "
+"0","  xlab(""Quantile rank"") + ylab(""International dollars"") + labs(title=""Empirical quantile function"", subtitle = ""GNI per capita (PPP), 2019"") +   theme(legend.position = c(0.16, 0.7))"
+"0",""

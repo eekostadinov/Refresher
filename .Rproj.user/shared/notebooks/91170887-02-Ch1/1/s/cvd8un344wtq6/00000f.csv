@@ -1,0 +1,1 @@
+"0","avegr.preGR<-(ukgdp$gdppc[ukgdp$date==""2007-01-01""]/ukgdp$gdppc[ukgdp$date==""1955-01-01""])^(1/((2007-1955)*4))-1"

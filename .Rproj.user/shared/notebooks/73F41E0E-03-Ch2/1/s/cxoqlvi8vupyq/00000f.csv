@@ -1,0 +1,2 @@
+"0","sea <- read_xlsx(""data_ch2.xlsx"", sheet=""sea"")"
+"0","head(sea)"

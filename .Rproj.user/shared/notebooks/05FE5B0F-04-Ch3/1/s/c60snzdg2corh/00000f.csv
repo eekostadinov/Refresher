@@ -1,0 +1,3 @@
+"0","wid2017 <- read_xlsx(""data_ch3.xlsx"", sheet = ""WID2017"")"
+"0","wid2017$Country <- as.factor(wid2017$Country)"
+"0","head(wid2017)"

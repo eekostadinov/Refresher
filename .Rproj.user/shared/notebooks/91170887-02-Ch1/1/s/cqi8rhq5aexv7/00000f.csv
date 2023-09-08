@@ -1,0 +1,1 @@
+"0","csdata %>% group_by(Region) %>% summarize(median=median(rGNIpc), mean=mean(rGNIpc), sd=sd(rGNIpc))"

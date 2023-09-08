@@ -1,0 +1,2 @@
+"0","ukco2 <- read_xlsx(""data_ch2.xlsx"", sheet = ""ukco2"")"
+"0","head(ukco2)"

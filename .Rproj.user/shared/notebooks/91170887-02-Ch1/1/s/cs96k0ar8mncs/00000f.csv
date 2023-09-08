@@ -1,0 +1,3 @@
+"0","ggplot(csdata.all,aes(x=log(rGNIpc), y=log(CO2pc), label=Country)) +"
+"0","  geom_point(col=""tomato2"") + xlab(""log(GNI per capita)"") +"
+"0","  ylab(""log(CO2 emissions per capita)"") + labs(title=""Scatterplot"", subtitle=""GNI per capita and CO2 emissions"")"

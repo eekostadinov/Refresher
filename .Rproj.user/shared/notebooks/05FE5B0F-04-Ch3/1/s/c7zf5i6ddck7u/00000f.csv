@@ -1,0 +1,1 @@
+"0","frs %>% group_by(educ) %>% summarise(mean=mean(income), median = median(income), q10 = quantile(income, 0.1), q90 = quantile(income, 0.9))"

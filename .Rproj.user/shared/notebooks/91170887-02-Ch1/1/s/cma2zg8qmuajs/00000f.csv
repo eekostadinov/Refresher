@@ -1,0 +1,4 @@
+"0","ggplot(csdata, aes(y=rGNIpc, x=rGNIpc.rank)) + "
+"0","  geom_line() +"
+"0","  xlab(""Quantile rank"") + ylab(""International dollars"") + labs(title=""Empirical quantile function"", subtitle = ""GNI per capita (PPP), 2019"")"
+"0",""

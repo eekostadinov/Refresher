@@ -1,0 +1,6 @@
+"0","ggplot(frs,aes(y=income, fill=educ))+"
+"0","  geom_boxplot(outlier.shape = NA) + ylim(0,quantile(frs$income,0.95)) +"
+"0","  xlab("""") + ylab(""Annual income, GBP"") + "
+"0","  labs(title = ""Box plot"", subtitle = ""Distribution of income by age, FRS 2017"", fill="""") +"
+"0","  scale_fill_brewer(palette = ""Reds"") +"
+"0","  theme(axis.text.y = element_blank())+ coord_flip() "

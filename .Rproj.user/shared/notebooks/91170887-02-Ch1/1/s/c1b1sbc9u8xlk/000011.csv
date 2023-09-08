@@ -1,0 +1,4 @@
+"0","ukgdp <- read_excel(""data_ch1.xlsx"", sheet=""uk_gdppc_qr"")"
+"0","ukgdp$date <- as.Date(ukgdp$date)"
+"0",""
+"0","head(ukgdp)"

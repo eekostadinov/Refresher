@@ -1,0 +1,5 @@
+"0","ggplot(frs) + "
+"0","  geom_histogram(aes(x=income), bins = 100, fill=""red"") + "
+"0","  xlab(""Annual income, GBP"") + ylab(""Number of observations"") + "
+"0","  xlim(0,quantile(frs$income,0.99)) +"
+"0","  labs(title = ""Histogram"", subtitle = ""Distribution of individual annual pre-tax income, FRS 2017, Bottom 99 percent"")"

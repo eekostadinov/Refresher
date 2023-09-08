@@ -1,0 +1,4 @@
+"0","ggplot(csdata, aes(x=Region, y=rGNIpc)) + "
+"0","  geom_point(aes(col=Region), show.legend=F) +"
+"0","  labs(title=""Dot plot"", subtitle=""GNI per capita grouped by regions, 2019"") + "
+"0","  ylab(""International $"") + xlab("""") +  coord_flip()"

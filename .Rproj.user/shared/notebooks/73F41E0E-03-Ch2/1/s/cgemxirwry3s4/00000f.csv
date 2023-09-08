@@ -1,0 +1,2 @@
+"0","mean5180 <- mean(subset(uktemp, Year>=1951 & Year<=1980)$AnnualMeanTemperature)"
+"0","uktemp$AnnualAnomaly <- uktemp$AnnualMeanTemperature - mean5180"

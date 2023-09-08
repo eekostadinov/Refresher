@@ -1,0 +1,1 @@
+"0","frs <- frs %>% mutate(inc.qrank = row_number(income)/length(income))"

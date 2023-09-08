@@ -1,0 +1,5 @@
+"0","ggplot(ukgdp) +"
+"0","  geom_line(aes(x=date, y=gdppc.gr), col=""red"") +"
+"0","  labs(title=""Time-series line plot"", subtitle = ""Real GDP growth rate, quarterly, UK"") +"
+"0","  xlab("""") + ylab(""Percentage change on year ago"") +"
+"0","  geom_rect(data=recs,aes(xmin=rec_st, xmax=rec_en, ymin=-Inf, ymax=+Inf), fill='blue', alpha=0.2)"

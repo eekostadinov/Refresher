@@ -1,0 +1,2 @@
+"0","gst <- read_xlsx(""data_ch2.xlsx"", sheet=""gst"")"
+"0","head(gst)"

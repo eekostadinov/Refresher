@@ -1,0 +1,5 @@
+"0","ggplot(ukgdp) +"
+"0","  geom_line(aes(x=date, y=log(gdppc), linetype=""Actual""),size=1, col=""red"") +"
+"0","  geom_line(aes(x=date, y=log(cfgdppc), linetype=""Pre-2007 trend""), alpha=0.4, col=""blue"", size=1) +"
+"0","  labs(title=""Time-series line plot"", subtitle = ""Real GDP per capita, quarterly, UK"") +"
+"0","  xlab("""") + ylab(""log(2022 £s)"") + labs(linetype="""") "

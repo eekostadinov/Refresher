@@ -1,0 +1,2 @@
+"0","ggplot(csdata.all,aes(x=log(rGNIpc), y=log(LifeExpectancy))) +"
+"0","  geom_point()"

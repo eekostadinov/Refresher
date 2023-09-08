@@ -1,0 +1,4 @@
+"0","ggplot(ukco2, aes(x=Year, y=co2)) + "
+"0","  geom_line(col=""blue"") + "
+"0","  labs(title=""Time series line plot"", subtitle = ""Annual production-based CO2 emissions, UK"") +"
+"0","  xlab(""Time"") + ylab(""Millions of tonnes"")"

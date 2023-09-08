@@ -1,0 +1,6 @@
+"0","ggplot(frs,aes(y=income, fill=sex))+"
+"0","  geom_boxplot(alpha=0.5, outlier.shape = NA) + ylim(0,quantile(frs$income,0.95)) +"
+"0","  scale_fill_manual(values=c(""blue"", ""red"")) +"
+"0","  xlab("""") + ylab(""Annual income, GBP"") + "
+"0","  labs(title = ""Box plot"", subtitle = ""Annual income by sex, FRS 2017"", fill="""") +"
+"0","  theme(axis.text.y = element_blank())+ coord_flip() "

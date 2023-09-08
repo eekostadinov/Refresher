@@ -1,0 +1,2 @@
+"0","ukrain <- read_xlsx(""data_ch2.xlsx"", sheet = ""ukrain"")"
+"0","head(ukrain)"

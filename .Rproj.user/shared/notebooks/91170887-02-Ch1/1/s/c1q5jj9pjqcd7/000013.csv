@@ -1,0 +1,2 @@
+"0","csdata.all <- read_excel(""data_ch1.xlsx"", sheet=""cs2019_multi"")"
+"0","head(csdata.all)"

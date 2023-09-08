@@ -1,0 +1,3 @@
+"0","ggplot(co2df, aes(x=Time, y=co2)) + geom_line(col=""blue"")+"
+"0","  labs(title=""Time series line plot"", subtitle = ""Atmospheric CO2 levels measured at Mauna Loa Observatory"") +"
+"0","  xlab(""Time"") + ylab(""CO2, parts per million"")"

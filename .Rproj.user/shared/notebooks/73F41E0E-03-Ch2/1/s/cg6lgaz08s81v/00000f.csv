@@ -1,0 +1,3 @@
+"0","ggplot(gnico22019, aes(x=log(GNIpc), y=log(CO2pc))) + geom_point(col=""blue"")+"
+"0","  labs(title=""Scatterplot"", subtitle = ""GNI p.c. (PPP) and CO2 emissions p.c., 2019"") +"
+"0","  xlab(""log(International Dollars per capita)"") + ylab(""log(Metric tonnes per capita)"")"

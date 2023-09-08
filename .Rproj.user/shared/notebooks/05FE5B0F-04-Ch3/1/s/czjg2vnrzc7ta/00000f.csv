@@ -1,0 +1,7 @@
+"0","# Declare variables as categorical"
+"0","frs$age <- as.factor(frs$age)"
+"0","frs$educ <- as.factor(frs$educ)"
+"0","frs$sex <- as.factor(frs$sex)"
+"0",""
+"0","# Change order of categories in `educ` in order of average income per group"
+"0","frs$educ <- fct_reorder(frs$educ, frs$income, .fun=mean)"

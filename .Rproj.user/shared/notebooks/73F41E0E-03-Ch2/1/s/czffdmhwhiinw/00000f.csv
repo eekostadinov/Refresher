@@ -1,0 +1,3 @@
+"0","co2df <- read_xlsx(""data_ch2.xlsx"", sheet = ""co2"")"
+"0","co2df$Time <- as.Date(co2df$Time)"
+"0","head(co2df)"

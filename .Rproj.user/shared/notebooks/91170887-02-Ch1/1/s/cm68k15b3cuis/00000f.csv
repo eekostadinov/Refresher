@@ -1,0 +1,4 @@
+"0","ggplot(csdata, aes(x=Region, y=rGNIpc)) + "
+"0","  geom_boxplot(aes(fill=Region), show.legend=F) +"
+"0","  labs(title=""Box plot"", subtitle=""GNI per capita (PPP), 2019"") + "
+"0","  xlab(""Region"") + ylab(""International $"") + coord_flip()"

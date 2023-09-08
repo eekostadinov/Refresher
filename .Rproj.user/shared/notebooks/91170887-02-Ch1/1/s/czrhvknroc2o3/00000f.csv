@@ -1,0 +1,3 @@
+"0","ggplot(csdata.all,aes(x=log(rGNIpc), y=log(LifeExpectancy),label=Country)) +"
+"0","  geom_text(col=""red"", check_overlap=TRUE, size=3) + xlab(""log(GNI per capita, PPP)"") +"
+"0","  ylab(""log(Life Expectancy)"") + labs(title=""Scatterplot"", subtitle=""GNI per capita and life expecancy, 2019"")"

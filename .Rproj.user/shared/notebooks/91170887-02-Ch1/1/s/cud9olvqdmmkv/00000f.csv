@@ -1,0 +1,4 @@
+"0","ggplot(csdata, aes(x=Region, fill=qrank.rGNIpc)) + "
+"0","  geom_bar(position='dodge', color=""black"") +"
+"0","  labs(title=""Bar chart"",subtitle=""Distribution of countries across GNI quintiles by region, 2019"") + "
+"0","  xlab(""GNI per capita (PPP) Quintile"") + ylab(""Number of countries"") "

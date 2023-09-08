@@ -1,0 +1,3 @@
+"0","ggplot(co2world, aes(x=Year, y=co2)) + geom_line(col=""blue"")+"
+"0","  labs(title=""Time series line plot"", subtitle = ""Global CO2 emissions from fossil fuels"") +"
+"0","  xlab(""Year"") + ylab(""Billions of tonnes"")"

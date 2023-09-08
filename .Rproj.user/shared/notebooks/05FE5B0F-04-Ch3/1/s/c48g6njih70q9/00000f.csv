@@ -1,0 +1,6 @@
+"0","lorenz_fun <- approxfun(x=frs$inc.qrank, y=frs$cumincshare)"
+"0","lorenz_fun(0.9)"
+"1","[1]"
+"1"," 0.6804861"
+"1","
+"

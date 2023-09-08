@@ -1,0 +1,1 @@
+"0","frs %>% summarise(q10 = quantile(income, 0.1), q50 = median(income),  q90 = quantile(income, 0.9), p90p50 = q90/q50, p50p10 = q50/q10)"
