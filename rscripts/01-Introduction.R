@@ -1,3 +1,5 @@
+## ----setup, include=FALSE-------------------------------------------------------------------------
+knitr::opts_chunk$set(echo = TRUE, warning=FALSE, message = FALSE)
 ## This Rscript contains all the codes from the corresponding chapter of the ebook in raw form.
 ## They are intended to make it easy to replicate the analysis on your own computer given that 
 ## you have already installed R and RStudio (refer to ebook for details).
@@ -30,7 +32,7 @@ install.packages("readxl")
 install.packages("dplyr")
 install.packages("ggplot2")
 install.packages("tidyr")
- 
+
 
 
 ## Load packages
@@ -40,13 +42,13 @@ library(ggplot2)
 library(tidyr)
 
 
-## ----------------------------------------------------------------------------------
+## -------------------------------------------------------------------------------------------------
 data <- read_excel("data_ch0.xlsx", sheet="mini")
 
 data
 
 
-## -----------------------------------------------------------------------------------
+## ---- rows.print=12-------------------------------------------------------------------------------
 long.data <- data %>% 
   pivot_longer(
     cols = `2019`:`2021`, 
@@ -55,6 +57,13 @@ long.data <- data %>%
   )
 
 long.data
+
+
+## -------------------------------------------------------------------------------------------------
+wide.data <- long.data %>%
+  pivot_wider(names_from = Year, values_from = GNIpc)
+
+wide.data
 
 
 ## -------------------------------------------------------------------------------------------------
