@@ -94,7 +94,7 @@ summary(csdata$rGNIpc)
 # Load world map data from server
 world <- map_data("world")
 
-# Merge world map data with GNI data
+# Merge world map data with GNI data; the function inner_join() takes two dataframes and "merges" them (adding variables from both together) at position specified by a common variable in the two. In this case "region" in `world` identifies country with same country names as the variable "Country" in `csdata`. The resulting data includes both coordinates for plotting the countries (from `world`) and data on GNI p.c. (from `csdata`).
 
 gnimap.data <- inner_join(world, csdata, by=c("region"="Country"))
 
@@ -149,7 +149,7 @@ ggplot(csdata, aes(x=rGNIpc)) +
 
 
 ## -------------------------------------------------------------------------------------------------
-quantile(csdata$rGNIpc,seq(0.1,0.9,0.1))
+kable(quantile(csdata$rGNIpc,seq(0.1,0.9,0.1)))
 
 
 ## -------------------------------------------------------------------------------------------------
@@ -165,8 +165,6 @@ csdata$Code <- fct_reorder(csdata$Code,csdata$rGNIpc)
 
 
 ## -------------------------------------------------------------------------------------------------
-
-
 ggplot(csdata, aes(y=rGNIpc, x=rGNIpc.rank)) + 
   geom_line() +
   xlab("Quantile rank") + ylab("International dollars") + labs(title="Empirical quantile function", subtitle = "GNI per capita (PPP), 2019")
@@ -314,23 +312,9 @@ ggplot(csdata.all,aes(x=log(rGNIpc), y=log(LifeExpectancy),label=Country)) +
 
 
 ## -------------------------------------------------------------------------------------------------
-cor(csdata.all$rGNIpc, csdata.all$LifeExpectancy,use="complete.obs")
-
-
-
-## -------------------------------------------------------------------------------------------------
-cor(log(csdata.all$rGNIpc), log(csdata.all$LifeExpectancy),use="complete.obs")
-
-
-
-## -------------------------------------------------------------------------------------------------
 ggplot(csdata.all,aes(x=log(rGNIpc), y=log(CO2pc), label=Country)) +
   geom_point(col="tomato2") + xlab("log(GNI per capita)") +
   ylab("log(CO2 emissions per capita)") + labs(title="Scatterplot", subtitle="GNI per capita and CO2 emissions")
-
-## -------------------------------------------------------------------------------------------------
-cor(log(csdata.all$rGNIpc), log(csdata.all$CO2pc),use="complete.obs")
-
 
 
 ## -------------------------------------------------------------------------------------------------
@@ -378,18 +362,18 @@ for (i in 1:length(ukgdp$date)){
 
 ## -------------------------------------------------------------------------------------------------
 ggplot(ukgdp) +
-  geom_line(aes(x=date, y=gdppc, linetype="Actual"), size=1, col="red") +
-  geom_line(aes(x=date, y=cfgdppc, linetype="Pre-2007 trend"), alpha=0.4, size=1, col="blue") +
-  labs(title="Time-series line plot", subtitle = "Real GDP per capita, quarterly, UK") +
-  xlab("") + ylab("2022 £s") + labs(linetype="") 
-
-
-## -------------------------------------------------------------------------------------------------
-ggplot(ukgdp) +
   geom_line(aes(x=date, y=log(gdppc), linetype="Actual"),size=1, col="red") +
   geom_line(aes(x=date, y=log(cfgdppc), linetype="Pre-2007 trend"), alpha=0.4, col="blue", size=1) +
   labs(title="Time-series line plot", subtitle = "Real GDP per capita, quarterly, UK") +
   xlab("") + ylab("log(2022 £s)") + labs(linetype="") 
+
+
+## -------------------------------------------------------------------------------------------------
+ggplot(ukgdp) +
+  geom_line(aes(x=date, y=gdppc, linetype="Actual"), size=1, col="red") +
+  geom_line(aes(x=date, y=cfgdppc, linetype="Pre-2007 trend"), alpha=0.4, size=1, col="blue") +
+  labs(title="Time-series line plot", subtitle = "Real GDP per capita, quarterly, UK") +
+  xlab("") + ylab("2022 £s") + labs(linetype="") 
 
 
 ## -------------------------------------------------------------------------------------------------
@@ -402,9 +386,9 @@ recs
 
 ## -------------------------------------------------------------------------------------------------
 ggplot(ukgdp) +
-  geom_line(aes(x=date, y=gdppc), col="red", size=1) +
+  geom_line(aes(x=date, y=log(gdppc)), col="red", size=1) +
   labs(title="Time-series line plot", subtitle = "Real GDP per capita, quarterly, UK") +
-  xlab("") + ylab("2022 £s") +
+  xlab("") + ylab("log(2022 £s)") +
   geom_rect(data=recs,aes(xmin=rec_st, xmax=rec_en, ymin=-Inf, ymax=+Inf), fill='tomato', alpha=0.2)
 
 
@@ -430,6 +414,19 @@ ggplot(subset(ukgdp,date<"2020-01-01")) +
   labs(title="Time-series line plot", subtitle = "Real GDP growth rate, quarterly, UK") +
   xlab("") + ylab("Percentage change on year ago") +
   geom_rect(data=recs[1:7,],aes(xmin=rec_st, xmax=rec_en, ymin=-Inf, ymax=+Inf), fill='blue', alpha=0.2)
+
+
+## -------------------------------------------------------------------------------------------------
+ukgdp <- ukgdp %>% mutate(gdppc.gr.logs = log(gdppc) - lag(log(gdppc),4))
+
+
+## -------------------------------------------------------------------------------------------------
+ggplot(ukgdp) +
+  geom_line(aes(x=date, y=gdppc.gr, col="Actual"), lty="solid") +
+  geom_line(aes(x=date, y=gdppc.gr.logs, col="Log Approximation"), lty="dashed") +
+  labs(title="Time-series line plot", subtitle = "Real GDP growth rate, quarterly, UK, actual and log approximation", color="") +
+  xlab("") + ylab("Percentage change on year ago")  +
+  geom_rect(data=recs,aes(xmin=rec_st, xmax=rec_en, ymin=-Inf, ymax=+Inf), fill='grey', alpha=0.2) + scale_color_manual(values=c("red", "blue"))
 
 
 ## -------------------------------------------------------------------------------------------------
@@ -477,10 +474,10 @@ df <- subset(longdata, Country == "UK"|
          Country == "Germany"|
          Country == "France"|
          Country == "Japan"|
-           Country == "Ireland"|Country == "Italy"|Country=="Canada")
+           Country == "Ireland")
 
 ggplot(df, aes(x=Year, y=log(rGNIpc), col=Country)) +
-  geom_line(linewidth=1) +
+  geom_line(linewidth=0.8) +
   xlab("Year") + 
   ylab("log(GNI per capita, PPP)") +
   labs(title = "Time series plot", subtitle="Evolution of GNI per capita across a set of developed economies")
@@ -491,8 +488,7 @@ df <- subset(longdata, Country == "USA"|
                Country == "South Korea"|
                Country == "Singapore"|
                Country == "China"|
-               Country == "Myanmar"|
-               Country == "Indonesia"|Country == "Vietnam")
+               Country == "Myanmar")
 
 ggplot(df, aes(x=Year, y=log(rGNIpc), col=Country)) +
   geom_line(size=1)+
@@ -557,6 +553,9 @@ ggplot(df2,aes(x=log(rGNIpc),y=(rGNIpc.gr), color=Region)) +
   xlab("log(GNI per capita, 1973)") + 
   ylab("Annual growth rate, 1973 - 2019") +
   labs(title = "Scatter plot", subtitle="Initial per capita income and subsequent growth rates") 
+
+
+#+ facet_wrap(Region~., scales="free")
 
 
 ## -------------------------------------------------------------------------------------------------
