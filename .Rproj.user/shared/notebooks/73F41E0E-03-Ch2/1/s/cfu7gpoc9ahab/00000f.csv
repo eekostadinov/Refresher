@@ -1,3 +1,0 @@
-"0","ggplot(antarctic, aes(x=Time, y=Mass)) + geom_line(col=""blue"") +"
-"0","  labs(title=""Time series line plot"", subtitle = ""Change in Antarctica ice mass"") +"
-"0","  xlab(""Time"") + ylab(""Gigatonnes, Change relative to 2002"")"

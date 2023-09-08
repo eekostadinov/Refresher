@@ -1,6 +1,0 @@
-"0","ggplot(frs, aes(x=income, fill=sex,  y = ..density..)) + "
-"0","  geom_histogram(bins = 50, position=""dodge"") + "
-"0","  scale_fill_manual(values=c(""blue"", ""red"")) +"
-"0","  xlab(""Annual income, GBP"") + ylab(""Density"") + "
-"0","  xlim(0,quantile(frs$income,0.99)) +"
-"0","  labs(title = ""Histogram"", subtitle = ""Distribution of individual annual pre-tax income, FRS 2017, By sex"")"

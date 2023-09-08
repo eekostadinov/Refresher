@@ -1,8 +1,0 @@
-"0","long.data <- data %>% "
-"0","  pivot_longer("
-"0","    cols = `2019`:`2021`, "
-"0","    names_to = ""Year"","
-"0","    values_to = ""GNIpc"""
-"0","  )"
-"0",""
-"0","long.data"

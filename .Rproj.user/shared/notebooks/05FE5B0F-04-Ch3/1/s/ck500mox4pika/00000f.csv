@@ -1,3 +1,0 @@
-"0","panel <- read_xlsx(""data_ch3.xlsx"", sheet = ""WIDpanel"")"
-"0","panel$Country <- as.factor(panel$Country)"
-"0","head(panel)"

@@ -1,4 +1,0 @@
-"0","ggplot(uktemp, aes(x=Year, y=AnnualMeanTemperature)) + "
-"0","  geom_line(col=""blue"") + "
-"0","  labs(title=""Time series line plot"", subtitle = ""Average annual temperature in UK"") +"
-"0","  xlab(""Time"") + ylab(""Degrees"")"

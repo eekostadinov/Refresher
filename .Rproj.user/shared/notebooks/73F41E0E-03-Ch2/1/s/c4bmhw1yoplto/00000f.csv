@@ -1,2 +1,0 @@
-"0","# Clear R environment"
-"0","rm(list = ls())"

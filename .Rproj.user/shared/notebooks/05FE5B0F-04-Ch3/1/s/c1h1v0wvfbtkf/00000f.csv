@@ -1,6 +1,0 @@
-"0","ggplot(wid2017, aes(x=gini)) +"
-"0","  geom_point(aes(y=p50p10, col=""P50P10"")) +"
-"0","  geom_point(aes(y=p90p50, col=""P90P50"")) +"
-"0","  xlab(""Gini coefficient"") +"
-"0","  ylab(""Measure"") +"
-"0","  labs(title = ""Scatterplot"", subtitle = ""Association between Gini coefficient and percentile ratios, countries"", col = ""Measure"")"

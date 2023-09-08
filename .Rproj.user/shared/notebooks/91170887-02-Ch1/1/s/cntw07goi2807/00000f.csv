@@ -1,5 +1,0 @@
-"0","recs <- read_excel(""data_ch1.xlsx"", sheet=""recs"")"
-"0","recs$rec_st <- as.Date(recs$rec_st)"
-"0","recs$rec_en <- as.Date(recs$rec_en)"
-"0",""
-"0","recs"

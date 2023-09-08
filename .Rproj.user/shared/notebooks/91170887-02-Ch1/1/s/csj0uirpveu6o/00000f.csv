@@ -1,6 +1,0 @@
-"0","ggplot(csdata, aes(x=rGNIpc, fill=Region)) + "
-"0","  geom_histogram(bins=10,color=""black"", alpha=0.9)+"
-"0","  labs(title=""Histograms"","
-"0","       subtitle=""Distribution of GNI per capita within regions, 2019"") +"
-"0","  xlab(""GNI per capita, PPP (2019)"") + ylab(""Number of countries"") +"
-"0","  facet_wrap(Region~., scales=""free_y"", strip.position = ""bottom"")+theme(legend.position = ""none"")"

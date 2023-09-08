@@ -1,3 +1,0 @@
-"0","# Load full panel dataset in long form"
-"0","longdata <- read_excel(""data_ch1.xlsx"", sheet = ""gnipcppp_long"")"
-"0","head(longdata)"

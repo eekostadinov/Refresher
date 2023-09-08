@@ -1,2 +1,0 @@
-"0","co2world <- read_xlsx(""data_ch2.xlsx"", sheet = ""co2emissions"")"
-"0","head(co2world)"

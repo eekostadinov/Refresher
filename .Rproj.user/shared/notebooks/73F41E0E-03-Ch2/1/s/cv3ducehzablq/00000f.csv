@@ -1,2 +1,0 @@
-"0","uktemp <- read_xlsx(""data_ch2.xlsx"", sheet = ""uktemp"")"
-"0","head(uktemp)"

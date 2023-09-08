@@ -1,2 +1,0 @@
-"0","tab <- table(csdata$Region, csdata$qrank.rGNIpc)"
-"0","kable(tab)"

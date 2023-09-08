@@ -1,2 +1,0 @@
-"0","gnico22019 <- read_xlsx(""data_ch2.xlsx"", sheet = ""gni_co2_pc_2019"")"
-"0","head(gnico22019)"

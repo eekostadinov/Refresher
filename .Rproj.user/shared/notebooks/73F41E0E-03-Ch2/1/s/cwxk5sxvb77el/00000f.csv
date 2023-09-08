@@ -1,3 +1,0 @@
-"0","ggplot(sea, aes(x=Time, y=GMSL)) + geom_line(col=""blue"") +"
-"0","  labs(title=""Time series line plot"", subtitle = ""Global mean sea level change"") +"
-"0","  xlab(""Time"") + ylab(""mm, Change relative to 1993"")"

@@ -1,5 +1,0 @@
-"0","ukgdp$cfgdppc <- ukgdp$gdppc[ukgdp$date==""1955-01-01""]"
-"0",""
-"0","for (i in 1:length(ukgdp$date)){"
-"0","  ukgdp$cfgdppc[i]=ukgdp$cfgdppc[1]*(1+avegr.preGR)^(i-1)"
-"0","}"

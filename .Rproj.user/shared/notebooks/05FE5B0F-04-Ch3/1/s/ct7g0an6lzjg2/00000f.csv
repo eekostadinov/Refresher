@@ -1,6 +1,0 @@
-"0","ggplot(panel, aes(x=Year, y=s1, col=Country)) + "
-"0","  geom_line() + "
-"0","  geom_point() +"
-"0","  scale_color_brewer(palette = ""Dark2"") +"
-"0","  xlab("""") + ylab(""Top 1% income share"") +"
-"0","  labs(title = ""Time series line plot"", subtitle = ""Top 1% income share over time"")"

@@ -1,7 +1,0 @@
-"0","ggplot(wid2017) + "
-"0","  geom_bar(aes(x=fct_reorder(Country, s10), y=s10), stat=""identity"", fill=""red"", col=""black"") +"
-"0","  theme(axis.text.y= element_text(size=6)) + "
-"0","  xlab("""") + ylab(""Top 10 % income share"") +"
-"0","  labs(title = ""Top 10% income shares across countries"", "
-"0","       subtitle = ""Pre-tax income from all sources"") +"
-"0","  coord_flip()"

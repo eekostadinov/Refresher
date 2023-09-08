@@ -1,6 +1,0 @@
-"0","ggplot(gst.decade, aes(x=as.factor(Decade), y=aveTempAnomaly)) +"
-"0","  geom_bar(stat=""identity"", fill=""blue"")+"
-"0","  geom_hline(yintercept=0, lty=""dashed"", col=""black"", linewidth=1) +"
-"0","  geom_segment(y=0,yend=0, x=10.5, xend=13.5, col=""red"", linewidth=1) +"
-"0","  labs(title=""Bar chart"", subtitle = ""Decade averages of average global monthly temperature anomalies"") +"
-"0","  xlab(""Time"") + ylab(""Degrees relative to 1951-1980 average"")"

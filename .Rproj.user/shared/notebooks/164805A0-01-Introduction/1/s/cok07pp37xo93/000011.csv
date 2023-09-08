@@ -1,2 +1,0 @@
-"0","wide.data <- long.data %>%"
-"0","  pivot_wider(names_from = Year, values_from = GNIpc)"

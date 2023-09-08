@@ -1,2 +1,0 @@
-"0","antarctic <- read_xlsx(""data_ch2.xlsx"", sheet=""ice"")"
-"0","head(antarctic)"

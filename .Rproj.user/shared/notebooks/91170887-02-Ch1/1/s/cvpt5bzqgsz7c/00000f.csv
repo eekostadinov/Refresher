@@ -1,1 +1,0 @@
-"0","ukgdp <- ukgdp %>% mutate(gdppc.gr.logs = log(gdppc) - lag(log(gdppc),4))"

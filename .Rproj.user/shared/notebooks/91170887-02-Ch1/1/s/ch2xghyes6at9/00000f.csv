@@ -1,2 +1,0 @@
-"0","# Rearrange region in order of the median GNI pc."
-"0","csdata$Region <- fct_reorder(csdata$Region,csdata$rGNIpc, .fun = median)"
