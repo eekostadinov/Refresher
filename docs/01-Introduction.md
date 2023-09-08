@@ -2,9 +2,12 @@
 
 
 
-This chapter discusses some essential concepts related to data and data analysis in R, and should be read prior to the subsequent chapters of the book. For ease of replication, all the data used in this chapter is available as an Excel file `data_ch0.xlsx`. 
+This chapter discusses some essential concepts related to data and data analysis in R, and should be read prior to the subsequent chapters of the book. 
 
-To replicate the rest of the chapter in your own R installation, download the file and place it inside a folder on your computer. Then set the working directory in R to the folder where you placed the file. For me, this is the following folder:
+For ease of replication, all the data used in this chapter is available as an Excel file `data_ch0.xlsx`. 
+
+- You can replicate all analysis in the cloud [here](https://mybinder.org/v2/gh/eekostadinov/Refresher/notebooks).
+- Alternatively, to replicate the chapter in your own R installation, download the data file and corrsponding R-script from [here](https://github.com/eekostadinov/Refresher/tree/data-and-rscripts) and extract them inside a folder on your computer. Then set the working directory in R to the folder where the files are. For me, this is the following folder:
 
 ```r
 setwd("/home/emil/Desktop/book")
@@ -34,7 +37,7 @@ While a precise definition of *data* is beyond the scope of this book, for pract
 
 Data could be obtained in a variety of ways and from a variety of sources, and prior to analyzing data it is essential to understand the structure of the dataset obtained from a given source.
 
-While the rest of the book uses larger datasets, for clarity this chapter uses a mini-dataset obtained as a subsample of the data from the chapter (#ch1). This "mini-data" is stored in the Excel file `data_ch0.xlsx` under the sheet `mini`. First, load the data into R, allocating it to a *dataframe* called `data`, and print it as follows 
+While the rest of the book uses larger datasets, for clarity this chapter uses a mini-dataset obtained as a subsample of the data from the [next chapter](#ch1). This "mini-data" is stored in the Excel file `data_ch0.xlsx` under the sheet `mini`. First, load the data into R, allocating it to a *dataframe*[^df] called `data`, and print it as follows 
 
 ```r
 data <- read_excel("data_ch0.xlsx", sheet="mini")
@@ -51,21 +54,31 @@ data
 ## 3 Turkmenistan Europe and Central Asia   7080     NA     NA
 ## 4 UK           Europe and Central Asia  43380  38590  44790
 ```
-The "mini-dataset" includes information on region and GNI per capita in 2019, 2020 and 2021 for four countries. The data is structured in the form of a table with each row corresponding to an individual country. It includes the country's region in the second column. Finally, the value of GNI per capita (PPP) for years 2019-2021 is represented in separate columns, labeled by the year. Note that there is some missing data (the GNP per capita of Turkmenistan in 2020 and 2021).
+[^df]: In R and many other programming languages, a *dataframe* is a named object storing data in a 2-dimensional table of rows and columns, similarly to a spreadsheet.
+
+The "mini-dataset" includes information on region and GNI per capita (PPP)[^gnipcppp] in 2019, 2020 and 2021 for four countries. The data is structured in the form of a table with each row corresponding to an individual country. It includes the country's region in the second column. Finally, the value of GNI per capita (PPP) for years 2019-2021 is represented in separate columns, labeled by the year. Note that there is some missing data (the GNI per capita (PPP) of Turkmenistan in 2020 and 2021).
+
+[^gnipcppp]: **Gross National Income (GNI)** is the total income earned by a country's residents (individuals or companies) from both domestic and foreign sources over a period of time. GNI is closely related to GDP, but accounts differently for income earned domestically and abroad. 
+
+    - For example, when a UK resident earns income from operations in both UK and France, the income earned in France is part of UK's GNI (but not UK's GDP) and France's GDP (but not France's GNI).
+    
+    **GNI per capita (GNI pc)**, the average income earned by a country's residents, is commonly used as a measure of material standard of living. However, given differences in price levels across countries, the same amount of income will have the "power" to purchase different amounts of goods and services in different countries. In order to account for this, the World Bank produces Purchasing Power Parity (PPP) adjusted measures of GNI per capita, which are more suitable for comparisons of living standard between countries.  
+    
+    In particular, in what follows we use data GNI per capita PPP-adjusted by the so called *Atlas method* - the indicator based on which the World Bank groups countries into low, middle, and high-income.
 
 ### Cross-sectional, time-series, and panel data
 
 One important aspect of data structure is whether the data is cross-sectional, time-series, or panel. 
 
-- *Cross-sectional* data consists of observations on several subjects (such as individuals, firms, countries) at a single point or period of time.
+- *Cross-sectional* data consists of observations on subjects (such as individuals, firms, countries) at a single point or period of time.
 - *Time-series* data consists of observations of a single subject over several points or periods of time.
-- *Panel* (or *longitudinal*) data consists of observations on several subjects over several points or periods of time. It has both cross-sectional and time-series dimensions. 
+- *Panel* (or *longitudinal*) data consists of observations on subjects over points or periods of time. It has both cross-sectional and time-series dimensions. 
 
 The data loaded above is an example of panel data, as it includes observations on four cross-sectional units (countries) for three distinct periods of time (years).
 
 #### Panel data - long and wide form
 
-When panel data is structured so that cross-sectional units vary across rows and time periods across columns (as above) it is said to be in *wide form*. While wide form is seemingly natural way to arrange data, for most computational purposes it is more appropriate to arrange panel data in *long form* - i.e., collapsing the time period so that a row of the data now corresponds to a pair of cross-sectional at a specific period of time:
+When panel data is structured so that cross-sectional units vary across rows and time periods across columns (as above) it is said to be in *wide form*. While wide form is seemingly a natural way to arrange data, for most computational purposes it is more appropriate to arrange panel data in *long form* - i.e., collapsing the time period so that a row of the data now identifies a cross-sectional unit at a specific period of time:
 
 
 ```r
@@ -97,8 +110,27 @@ long.data
 ## 12 UK           Europe and Central Asia 2021  44790
 ```
 
-The same dataset in "long" form has 12 observations, with each observation (row) corresponding to a country in a given year. The dataset includes 4 variables (columns) identifying the country, its region, the year, and the country's GNI per capita in the specific year.
+The same dataset in "long" form has 12 observations, with each observation (row) corresponding to a country in a given year. The dataset includes 4 variables (columns) identifying the country, its region, the year, and the country's GNI per capita (PPP) in the specific year.
 
+As a side note, panel data in long form can also be transformed into wide form:
+
+
+```r
+wide.data <- long.data %>%
+  pivot_wider(names_from = Year, values_from = GNIpc)
+
+wide.data
+```
+
+```
+## # A tibble: 4 x 5
+##   Country      Region                  `2019` `2020` `2021`
+##   <chr>        <chr>                    <dbl>  <dbl>  <dbl>
+## 1 Bangladesh   South Asia                2210   2300   2570
+## 2 Switzerland  Europe and Central Asia  83160  82490  88910
+## 3 Turkmenistan Europe and Central Asia   7080     NA     NA
+## 4 UK           Europe and Central Asia  43380  38590  44790
+```
 #### Cross-sectional data
 
 An example of cross-sectional data, is the subset of the panel data above, at a particular year only. It has the following structure:
@@ -145,7 +177,7 @@ As panel data has both cross-sectional and time-series dimensions, it is appropr
 
 ### Visualizing the structure of your data
 
-As illustrated above, before starting any data analysis, it is essential to get a clear understanding of the structure of your data. For this reason, it is important to always inspect the data (i.e., the "table" or rows and columns), understanding what does an observation (row of data) identify, how are variables (columns of data) recorded, and so forth. In the rest of the book, whenever new dataset is loaded we will explicitly print the first few rows of the data to clarify the structure. In R, this can be easily done by using the function `head()` which will print the first few rows of the dataframe. The syntax is `head(name_of_dataframe)`. 
+As illustrated above, before starting any data analysis, it is essential to get a clear understanding of the structure of your data. For this reason, it is important to always inspect the data (i.e., the "table" or rows and columns), understanding what does an observation (row of data) identify, how are variables (columns of data) recorded, and so forth. In the rest of the book, whenever new dataset is loaded we will explicitly print the first few rows of the data to clarify the structure. In R, this can be easily done by using the function `head()` which will print the first few rows of a dataframe. The syntax is `head(name_of_dataframe)`. 
 
 While this is often sufficient for the purposes of the book, when you use more complicated datasets it is better to view the data in the data browser, using the function `View()` with syntax `View(name_of_dataframe)` which will return the whole "table" of data.
 
@@ -239,7 +271,7 @@ R has a base in-built function `hist()` for producing histograms which we can us
 hist(csdata$GNIpc)
 ```
 
-![](01-Introduction_files/figure-latex/unnamed-chunk-10-1.pdf)<!-- --> 
+![](01-Introduction_files/figure-latex/unnamed-chunk-11-1.pdf)<!-- --> 
 
 While the R's base in-built library for graphs `graphics` is sufficiently extensive (you can find more about it [here](https://www.rdocumentation.org/packages/graphics/versions/3.6.2)), for the remainder of this book we will make use of the more advanced and customizable library `ggplot2` (more [here](https://ggplot2.tidyverse.org/)). 
 
@@ -250,10 +282,11 @@ ggplot(csdata, aes(x=GNIpc)) +
   geom_histogram()
 ```
 
-![](01-Introduction_files/figure-latex/unnamed-chunk-11-1.pdf)<!-- --> 
+![](01-Introduction_files/figure-latex/unnamed-chunk-12-1.pdf)<!-- --> 
 
 Before proceeding further let's briefly discuss the philosophy of the `ggplot` syntax. 
-- `ggplot` is called through the function `ggplot()` which takes as first argument the name of the dataframe used (and posibly specification of *aesthetics* - see below).
+
+- `ggplot` is called through the function `ggplot()` which takes as first argument the name of the dataframe used (and possibly specification of *aesthetics* - see below).
 - Then with `+` we add *layers* of types of graphs we want to plot. In the above example `geom_histogram()` specifies we are to plot a histogram. We could instead use `geom_bar()` for barcharts, `geom_boxplot()` for boxplots, and so forth. You will see many examples of layers in the book.
 - Either inside `ggplot()` or inside `geom_...()` we need to specify the variables based on which the graph is to be plotted. In `ggplot` this is specified via *aesthetics* through a function `aes()`. Loosely, this refers to a set of statements about what is being plotted - e.g., what goes on `x` and/or `y` axis, should different groups be plotted in different colors, etc.
 - Then all this can be customized further, by adding labels, color schemes, etc, as we will see throughout the book.
@@ -268,6 +301,6 @@ ggplot(csdata, aes(x=GNIpc)) +
        subtitle="Distribution of real GNI per capita across countries, 2019")
 ```
 
-![](01-Introduction_files/figure-latex/unnamed-chunk-12-1.pdf)<!-- --> 
+![](01-Introduction_files/figure-latex/unnamed-chunk-13-1.pdf)<!-- --> 
 
 This all sounds quite complicated, but the philosophy of plotting will hopefully become increasingly clear through examples. 

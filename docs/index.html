@@ -23,7 +23,7 @@
 <meta name="author" content="Economics Department, University of Warwick" />
 
 
-<meta name="date" content="2023-09-01" />
+<meta name="date" content="2023-09-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -169,6 +169,7 @@ div.csl-indent {
 <li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#how-to-read-this-book"><i class="fa fa-check"></i><b>0.1</b> How to read this book</a>
 <ul>
 <li class="chapter" data-level="0.1.1" data-path="index.html"><a href="index.html#how-to-run-the-codes-yourself"><i class="fa fa-check"></i><b>0.1.1</b> How to run the codes yourself</a></li>
+<li class="chapter" data-level="0.1.2" data-path="index.html"><a href="index.html#additional-resources-on-r"><i class="fa fa-check"></i><b>0.1.2</b> Additional resources on R</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="some-basics.html"><a href="some-basics.html"><i class="fa fa-check"></i><b>1</b> Some basics</a>
@@ -258,7 +259,7 @@ div.csl-indent {
 <h1 class="title">Representing data</h1>
 <h2 class="subtitle"><em>Refresher Mathematics for Economics course</em></h2>
 <p class="author"><em>Economics Department, University of Warwick</em></p>
-<p class="date"><em>2023-09-01</em></p>
+<p class="date"><em>2023-09-08</em></p>
 </div>
 <div id="preface" class="section level1 unnumbered hasAnchor">
 <h1>Preface<a href="index.html#preface" class="anchor-section" aria-label="Anchor link to header"></a></h1>
@@ -273,7 +274,7 @@ div.csl-indent {
 <p>The purpose of the book is three-fold.</p>
 <ol style="list-style-type: decimal">
 <li>To enhance your understanding of what data is and of different types of data structures, by using real world examples.</li>
-<li>To provide examples of meaningful ways for representing data - summary statistics, two-way tables, graphs (histograms, bar charts, box plots, time-series line charts, etc) - in different contexts, using real-world data.</li>
+<li>To provide examples of meaningful ways for representing data - in different contexts, using real-world data.</li>
 <li>To provide a brief introduction to R and some of its common packages.</li>
 </ol>
 <p>With reference to point 3. above, the book presents all R codes used together with the outputs from the code (such as graphs and tables). The codes are fully replicable - if you run all the blocks of code in your own R/RStudio installation (or on the cloud) in the order that they appear within each chapter, you will get identical results. This being said, a complete introduction to R is beyond the scope of this course and not all of the code will be explained in detail. You are nonetheless strongly encouraged to run the code yourself, and hopefully learn intuitively key aspects of the syntax of the language. Still, some parts of the document will include relatively advanced code, so do not worry if you do not understand everything (or even most of the code).</p>
@@ -281,17 +282,21 @@ div.csl-indent {
 <h2><span class="header-section-number">0.1</span> How to read this book<a href="index.html#how-to-read-this-book" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We imagine that there could be two possible ways of reading the book, depending on whether you want to simply reflect on different ways of visualizing the data, or you also want to gain some understanding of coding in R.</p>
 <p>If you are not interested in using R to replicate the results yourself, then you can simply read through the e-book, reflect on the tables and figures presented, and their interpretation. This should be sufficient to gain some understanding of the variety of different types of tables and charts used to represent data.</p>
-<p>However, a more thorough way of engaging with the book and with data, is to additionally try to reflect on the codes producing the representations, ideally by replicating them in your own R/RStudio installation or on the cloud. As some understanding of coding is essential to economics, we would strongly recommend this approach.</p>
+<p>However, a more thorough way of engaging with the book and with data, is to additionally try to reflect on the codes producing the representations, ideally by replicating them in your own R/RStudio installation or on the cloud. As some understanding of data analysis and coding are part of the essential toolkit of an economist, we would strongly recommend this approach.</p>
 <div id="how-to-run-the-codes-yourself" class="section level3 hasAnchor" number="0.1.1">
 <h3><span class="header-section-number">0.1.1</span> How to run the codes yourself<a href="index.html#how-to-run-the-codes-yourself" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>To run the codes and replicate the results yourself, you need to run R either on your own computer or on the cloud. We propose two different ways of doing this.</p>
-<p>First, if you would like to run the codes interactively (with the ability to make small changes in code and see how output is affected), but not install R on your machine yet, we have created a virtual online environment on <a href="mybinder.org">mybinder.org</a> where the codes from different chapters of the book can be run interactively. You can access the virtual environment <a href="https://mybinder.org/v2/gh/eekostadinov/Refresher/notebooks">here</a>. This is perfectly sufficient for exploring all the codes related to the book and playing around by exploring how small changes in the code affect the output.</p>
+<p>First, if you would like to run the codes interactively (with the ability to make small changes in code and see how output is affected), but not install R on your machine yet, we have created a virtual online environment on <a href="https://mybinder.org">mybinder.org</a> where the codes from different chapters of the book can be run interactively. You can access the virtual environment <a href="https://mybinder.org/v2/gh/eekostadinov/Refresher/notebooks">here</a>. Please do note that it is possible to get an error message - if this is the case try refreshing the page several times until (and it should) it works. This is perfectly sufficient for exploring all the codes related to the book and playing around by exploring how small changes in the code affect the output.</p>
 <p>Alternatively, you can install R and RStudio (both R and RStudio are free and open-source) on your own machine and replicate the codes in your own RStudio installation. The advantage of this approach, is that you will be able to use the software for subsequent work on data analysis - something that may be useful during your degree. Additionally, after the installation, running from your own installation will likely work faster than in the virtual environment on the cloud.</p>
 <ul>
 <li>If you are using a University computer, R and RStudio should already be installed.</li>
 <li>To install R and RStudio on your own personal computer, first download the most recent version of R for your operating system from <a href="https://cran.r-project.org/">CRAN</a> and follow the instructions there to install. Next, download the most recent version of RStudio Desktop for your operating system from <a href="https://posit.co/products/open-source/rstudio/">Posit website</a> and follow the instructions there to install.</li>
 </ul>
 <p>Once you have your own installation, you will be able to copy chunks of code from the e-book into a script in your RStudio editor, and run from there. To make this easier, you can download all the data and Rscripts (containing all code) for the chapters from the <a href="https://github.com/eekostadinov/Refresher/tree/data-and-rscripts">book’s GitHub repository</a>. Follow the instructions there to set up your local environment.</p>
+</div>
+<div id="additional-resources-on-r" class="section level3 hasAnchor" number="0.1.2">
+<h3><span class="header-section-number">0.1.2</span> Additional resources on R<a href="index.html#additional-resources-on-r" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Beyond this Refresher course, if you would like to learn more about programming with R, the Department provides an online course <em>Introduction to R</em> <a href="https://moodle.warwick.ac.uk/course/view.php?id=30899">here</a>. The course is open for all students, not for credit, and you can enroll by simply clicking on the link.</p>
 
 </div>
 </div>
@@ -350,7 +355,7 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": null,
+"download": ["refresher-book.pdf"],
 "search": {
 "engine": "fuse",
 "options": null
