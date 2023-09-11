@@ -55,8 +55,11 @@ Alternatively, you can install R and RStudio (both R and RStudio are free and op
 
 Once you have your own installation, you will be able to copy chunks of code from the e-book into a script in your RStudio editor, and run from there. To make this easier, you can download all the data and Rscripts (containing all code) for the chapters from the [book's GitHub repository](https://github.com/eekostadinov/Refresher/tree/data-and-rscripts). Follow the instructions there to set up your local environment.
 
-### Additional resources on R
+## Additional resources on R
 
 Beyond this Refresher course, if you would like to learn more about programming with R, the Department provides an online course  *Introduction to R* [here](https://moodle.warwick.ac.uk/course/view.php?id=30899). The course is open for all students, not for credit, and you can enroll by simply clicking on the link. 
 
+## Additional resources on transitioning to economics
+
+While the discussion in this e-book aims to be at a level appropriate for students joining degrees with economics, the applications invariably (although rarely) make use of some economic concepts and vocabulary which might be new to some students. The Department provides an online course *Transitioning to Economics* [here](https://moodle.warwick.ac.uk/course/view.php?id=38056) which provides introductory discussions to some key economic concepts, some of which relevant to those discussed in this e-book. Specific concepts where relevant resources are available there are explicitly referenced within the e-book, but in general we would like to encourage you to engage with the above course as well, not only for the purposes of following the content here. The course is open for all students, not for credit, and you can enroll by simply clicking on the link. 
 
